@@ -26,16 +26,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mary/X00178070/MMAStatsApp/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+[/Users/mary/X00178070/MMAStatsApp/Pages/FighterSearch.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmlnaHRlclNlYXJjaC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/mary/X00178070/MMAStatsApp/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/mary/X00178070/MMAStatsApp/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/mary/X00178070/MMAStatsApp/_Imports.razor]

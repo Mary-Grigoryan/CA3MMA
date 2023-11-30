@@ -1,0 +1,80 @@
+@inject MMAStatsService StatsService
+@page "/fighter-search"
+
+<h3>Search Fighter Stats</h3>
+<input @bind="searchQuery" />
+<button @onclick="Search">Search</button>
+
+@if (fighterStats != null && fighterStats.Results.Any())
+{
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Nickname</th>
+            <th>Division Title</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Draws</th>
+            <th>Striking Accuracy</th>
+            <th>Takedown Accuracy</th>
+            <!-- Add more headers as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fighter in fighterStats.Results)
+            {
+                <tr>
+                    <td>@fighter.Name</td>
+                    <td>@fighter.Nickname</td>
+                    <td>@fighter.DivisionTitle</td>
+                    <td>@fighter.DivisionBody?.Wins</td>
+                    <td>@fighter.DivisionBody?.Losses</td>
+                    <td>@fighter.DivisionBody?.Draws</td>
+                    <td>@fighter.StrikingAccuracy</td>
+                    <td>@fighter.TakedownAccuracy</td>
+                    <!-- Add more data cells corresponding to the headers -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (fighterStats != null && !fighterStats.Results.Any())
+{
+    <p>No results found.</p>
+}
+
+
+@code {
+    private string? searchQuery;
+    private FighterStats? fighterStats;
+    private string? errorMessage; // To display an error message in the UI
+
+    private async Task Search()
+    {
+        errorMessage = null; // Clear previous error messages
+        fighterStats = null; // Reset previous results
+        if (!string.IsNullOrWhiteSpace(searchQuery))
+        {
+            try
+            {
+                fighterStats = await StatsService.GetFighterStats(searchQuery);
+
+                // If the service returns null or empty results, set an appropriate message
+                if (fighterStats == null || !fighterStats.Results.Any())
+                {
+                    errorMessage = "No results found.";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Update the UI with the error message
+                errorMessage = $"An error occurred: {ex.Message}";
+            }
+        }
+        else
+        {
+            errorMessage = "Please enter a search query.";
+        }
+    }
+}

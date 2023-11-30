@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MOVJKn34X26mqEq+ZomZpGKMJp+IjOEUuR5lfDUcUcWCW1mShiACuNV1j9e7k2Oqn+QUsHeoTmGhCXpgWxbJ8Q==",
+  "dgSpecHash": "UsZIqTnd5gig2fr0WVf/1AmlUaJdWIlT5RN6roWjK9eSUxlXJ+9AeOeRhBUgjpY00n/jiymbpsswrjeLdV1bqQ==",
   "success": true,
   "projectFilePath": "/Users/mary/X00178070/MMAStatsApp/MMAStatsApp.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,7 @@
     "/Users/mary/.nuget/packages/microsoft.jsinterop.webassembly/8.0.0/microsoft.jsinterop.webassembly.8.0.0.nupkg.sha512",
     "/Users/mary/.nuget/packages/microsoft.net.illink.tasks/8.0.0/microsoft.net.illink.tasks.8.0.0.nupkg.sha512",
     "/Users/mary/.nuget/packages/microsoft.net.sdk.webassembly.pack/8.0.0/microsoft.net.sdk.webassembly.pack.8.0.0.nupkg.sha512",
+    "/Users/mary/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/Users/mary/.nuget/packages/system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg.sha512",
     "/Users/mary/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
     "/Users/mary/.nuget/packages/system.text.json/8.0.0/system.text.json.8.0.0.nupkg.sha512",
