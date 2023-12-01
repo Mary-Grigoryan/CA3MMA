@@ -16,7 +16,7 @@ public class MMAStatsService
     {
         try
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, $"https://mma-stats.p.rapidapi.com/search?query={fighterName}");
+            var request = new HttpRequestMessage(HttpMethod.Get, $"https://mma-stats.p.rapidapi.com/search?name={Uri.EscapeDataString(fighterName)}");
             request.Headers.Add("X-RapidAPI-Key", "ea1a7aa5d6msh5ba879d6516cbc6p196e76jsn3034a6cdcfb0");
             request.Headers.Add("X-RapidAPI-Host", "mma-stats.p.rapidapi.com");
 
@@ -45,68 +45,150 @@ public class MMAStatsService
 
 public class FighterStats
 {
-    public List<FighterResult> Results { get; set; }
+    [JsonProperty("results")]
+    public List<FighterResult>? Results { get; set; } // It's okay for Results to be null
 }
 
 public class FighterResult
 {
-    public string Name { get; set; }
-    public string Nickname { get; set; }
-    public string DivisionTitle { get; set; }
-    public DivisionBody DivisionBody { get; set; }
-    public BioData BioData { get; set; }
-    public Dictionary<string, string> Stats { get; set; }
-    public string SigStrikesLanded { get; set; }
-    public string SigStrikesAttempted { get; set; }
-    public string TakedownsLanded { get; set; }
-    public string TakedownsAttempted { get; set; }
-    public string StrikingAccuracy { get; set; }
-    public string TakedownAccuracy { get; set; }
-    public Records Records { get; set; }
-    public LastFight LastFight { get; set; }
-    public List<string> FighterFacts { get; set; }
-    public List<string> UFCHistory { get; set; }
+    [JsonProperty("Name")]
+    public string? Name { get; set; }
+
+    [JsonProperty("Nickname")]
+    public string? Nickname { get; set; }
+
+    [JsonProperty("Division Title")]
+    public string? DivisionTitle { get; set; }
+
+    [JsonProperty("Division Body")]
+    public DivisionBody? DivisionBody { get; set; }
+
+    [JsonProperty("Bio Data")]
+    public BioData? BioData { get; set; }
+
+    [JsonProperty("Stats")]
+    public Dictionary<string, string>? Stats { get; set; }
+
+    [JsonProperty("Sig. Strikes Landed")]
+    public string? SigStrikesLanded { get; set; }
+
+    [JsonProperty("Sig. Strikes Attempted")]
+    public string? SigStrikesAttempted { get; set; }
+
+    [JsonProperty("Takedowns Landed")]
+    public string? TakedownsLanded { get; set; }
+
+    [JsonProperty("Takedowns Attempted")]
+    public string? TakedownsAttempted { get; set; }
+
+    [JsonProperty("Striking accuracy")]
+    public string? StrikingAccuracy { get; set; }
+
+    [JsonProperty("Takedown Accuracy")]
+    public string? TakedownAccuracy { get; set; }
+
+    [JsonProperty("Records")]
+    public Records? Records { get; set; }
+
+    [JsonProperty("Last Fight")]
+    public LastFight? LastFight { get; set; }
+
+    [JsonProperty("Fighter Facts")]
+    public List<string>? FighterFacts { get; set; }
+
+    [JsonProperty("UFC History")]
+    public List<string>? UFCHistory { get; set; }
 }
 
 public class DivisionBody
 {
-    public string Wins { get; set; }
-    public string Losses { get; set; }
-    public string Draws { get; set; }
+    [JsonProperty("Wins")]
+    public string? Wins { get; set; }
+
+    [JsonProperty("Losses")]
+    public string? Losses { get; set; }
+
+    [JsonProperty("Draws")]
+    public string? Draws { get; set; }
 }
 
 public class BioData
 {
-    public string Status { get; set; }
-    public string Hometown { get; set; }
-    public string TrainsAt { get; set; }
-    public string Age { get; set; }
-    public string Height { get; set; }
-    public string Weight { get; set; }
-    public string OctagonDebut { get; set; }
-    public string Reach { get; set; }
-    public string LegReach { get; set; }
+    [JsonProperty("Status")]
+    public string? Status { get; set; }
+
+    [JsonProperty("Hometown")]
+    public string? Hometown { get; set; }
+
+    [JsonProperty("Trains at")]
+    public string? TrainsAt { get; set; }
+
+    [JsonProperty("Fighting style")]
+    public string? FightingStyle { get; set; }
+
+    [JsonProperty("Age")]
+    public string? Age { get; set; }
+
+    [JsonProperty("Height")]
+    public string? Height { get; set; }
+
+    [JsonProperty("Weight")]
+    public string? Weight { get; set; }
+
+    [JsonProperty("Octagon Debut")]
+    public string? OctagonDebut { get; set; }
+
+    [JsonProperty("Reach")]
+    public string? Reach { get; set; }
+
+    [JsonProperty("Leg reach")]
+    public string? LegReach { get; set; }
 }
 
 public class Records
 {
-    public string WinsByKnockout { get; set; }
-    public string WinsBySubmission { get; set; }
-    public string FormerChampion { get; set; }
-    public string SigStrLanded { get; set; }
-    public string SigStrAbsorbed { get; set; }
-    public string TakedownAvg { get; set; }
-    public string SubmissionAvg { get; set; }
-    public string SigStrDefense { get; set; }
-    public string TakedownDefense { get; set; }
-    public string KnockdownAvg { get; set; }
-    public string AverageFightTime { get; set; }
+    [JsonProperty("Wins by Knockout")]
+    public string? WinsByKnockout { get; set; }
+
+    [JsonProperty("Wins by Submission")]
+    public string? WinsBySubmission { get; set; }
+
+    [JsonProperty("Sig. Str. Landed")]
+    public string? SigStrLanded { get; set; }
+
+    [JsonProperty("Sig. Str. Absorbed")]
+    public string? SigStrAbsorbed { get; set; }
+
+    [JsonProperty("Takedown avg")]
+    public string? TakedownAvg { get; set; }
+
+    [JsonProperty("Submission avg")]
+    public string? SubmissionAvg { get; set; }
+
+    [JsonProperty("Sig. Str. Defense")]
+    public string? SigStrDefense { get; set; }
+
+    [JsonProperty("Takedown Defense")]
+    public string? TakedownDefense { get; set; }
+
+    [JsonProperty("Knockdown Avg")]
+    public string? KnockdownAvg { get; set; }
+
+    [JsonProperty("Average fight time")]
+    public string? AverageFightTime { get; set; }
 }
 
 public class LastFight
 {
-    public string Event { get; set; }
-    public string FightNumber { get; set; }
-    public string Matchup { get; set; }
-    public string Date { get; set; }
+    [JsonProperty("Event")]
+    public string? Event { get; set; }
+
+    [JsonProperty("Fight Number")]
+    public string? FightNumber { get; set; }
+
+    [JsonProperty("Matchup")]
+    public string? Matchup { get; set; }
+
+    [JsonProperty("Date")]
+    public string? Date { get; set; }
 }

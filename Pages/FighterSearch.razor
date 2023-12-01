@@ -1,11 +1,12 @@
 @inject MMAStatsService StatsService
 @page "/fighter-search"
 
-<h3>Search Fighter Stats</h3>
-<input @bind="searchQuery" />
-<button @onclick="Search">Search</button>
+<EditForm Model="@this" OnValidSubmit="@Search">
+    <InputText id="fighterSearch" class="form-control" @bind-Value="searchQuery" />
+    <button type="submit" class="btn btn-primary">Search</button>
+</EditForm>
 
-@if (fighterStats != null && fighterStats.Results.Any())
+@if (fighterStats != null && fighterStats.Results != null && fighterStats.Results.Any())
 {
     <table class="table">
     <thead>
@@ -39,7 +40,7 @@
         </tbody>
     </table>
 }
-else if (fighterStats != null && !fighterStats.Results.Any())
+else if (fighterStats != null && (fighterStats.Results == null || !fighterStats.Results.Any()))
 {
     <p>No results found.</p>
 }
@@ -61,7 +62,7 @@ else if (fighterStats != null && !fighterStats.Results.Any())
                 fighterStats = await StatsService.GetFighterStats(searchQuery);
 
                 // If the service returns null or empty results, set an appropriate message
-                if (fighterStats == null || !fighterStats.Results.Any())
+                if (fighterStats == null || fighterStats.Results == null || !fighterStats.Results.Any())
                 {
                     errorMessage = "No results found.";
                 }
