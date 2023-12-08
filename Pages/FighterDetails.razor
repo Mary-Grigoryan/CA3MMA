@@ -1,0 +1,77 @@
+@page "/fighter-details/{FighterName}"
+@inject MMAStatsService StatsService
+@inject NavigationManager NavigationManager
+
+@code {
+    [Parameter]
+    public string? FighterName { get; set; }
+
+    private FighterStats? fighterStats;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(FighterName))
+        {
+            try
+            {
+                fighterStats = await StatsService.GetFighterStats(FighterName);
+
+                if (fighterStats == null || fighterStats.Results == null || !fighterStats.Results.Any())
+                {
+                    // No fighter details found, set an error message or redirect
+                    errorMessage = "No fighter details found.";
+                }
+            }
+            catch (Exception ex)
+            {
+                // An error occurred while fetching fighter stats, set an error message or redirect
+                errorMessage = $"An error occurred: {ex.Message}";
+            }
+        }
+        else
+        {
+            // FighterName was not provided, set an error message or redirect
+            errorMessage = "Fighter name not provided.";
+            NavigationManager.NavigateTo("/fighter-search"); // Redirect to the search page
+        }
+    }
+}
+
+@if (fighterStats != null && fighterStats.Results != null && fighterStats.Results.Any())
+{
+    var fighter = fighterStats.Results.First();
+    <div class="fighter-profile">
+    <div class="division-status">
+        <span class="division">@fighter.DivisionTitle</span>
+        <span class="status">@fighter.BioData?.Status</span>
+    </div>
+    <div class="nickname">@fighter.Nickname</div>
+    <h1 class="name">@fighter.Name</h1>
+    <div class="record">@fighter.DivisionBody?.Wins-@fighter.DivisionBody?.Losses-@fighter.DivisionBody?.Draws (W-L-D)
+    </div>
+    <div class="stats">
+        <div class="stat">
+            <span class="number">@fighter.Records?.WinsByKnockout</span>
+            <span class="label">Wins by Knockout</span>
+        </div>
+        <div class="stat">
+            <span class="number">@fighter.Records?.WinsBySubmission</span>
+            <span class="label">Wins by Submission</span>
+        </div>
+        <div class="stat">
+            <span class="number">10</span> <!-- Replace with actual data -->
+            <span class="label">First Round Finishes</span>
+        </div>
+    </div>
+    <div class="last-fight">
+        <div class="fight-title">Last Fight</div>
+        <div class="fight-details">@fighter.LastFight?.Event vs @fighter.LastFight?.Matchup</div>
+        <div class="fight-date">@fighter.LastFight?.Date</div>
+    </div>
+</div>
+}
+else if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p>@errorMessage</p>
+}

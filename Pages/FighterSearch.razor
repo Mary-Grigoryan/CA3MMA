@@ -1,81 +1,65 @@
-@inject MMAStatsService StatsService
 @page "/fighter-search"
+@inject NavigationManager NavigationManager
+@inject MMAStatsService StatsService
+@using MMAStatsApp.Shared
 
 <EditForm Model="@this" OnValidSubmit="@Search">
     <InputText id="fighterSearch" class="form-control" @bind-Value="searchQuery" />
     <button type="submit" class="btn btn-primary">Search</button>
 </EditForm>
 
-@if (fighterStats != null && fighterStats.Results != null && fighterStats.Results.Any())
+@if (!string.IsNullOrEmpty(errorMessage))
 {
-    <table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Nickname</th>
-            <th>Division Title</th>
-            <th>Wins</th>
-            <th>Losses</th>
-            <th>Draws</th>
-            <th>Striking Accuracy</th>
-            <th>Takedown Accuracy</th>
-            <!-- Add more headers as needed -->
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var fighter in fighterStats.Results)
-            {
-                <tr>
-                    <td>@fighter.Name</td>
-                    <td>@fighter.Nickname</td>
-                    <td>@fighter.DivisionTitle</td>
-                    <td>@fighter.DivisionBody?.Wins</td>
-                    <td>@fighter.DivisionBody?.Losses</td>
-                    <td>@fighter.DivisionBody?.Draws</td>
-                    <td>@fighter.StrikingAccuracy</td>
-                    <td>@fighter.TakedownAccuracy</td>
-                    <!-- Add more data cells corresponding to the headers -->
-                </tr>
-            }
-        </tbody>
-    </table>
+    <p>@errorMessage</p>
 }
-else if (fighterStats != null && (fighterStats.Results == null || !fighterStats.Results.Any()))
+else if (searchResults != null && searchResults.Count == 1)
 {
-    <p>No results found.</p>
+    // There is exactly one result, redirect to the fighter details page
+    NavigationManager.NavigateTo($"/fighter-details/{searchResults.First().Name}");
 }
-
+else if (searchResults != null && searchResults.Count > 1)
+{
+    // Display a list or grid of fighters matching the search term
+    <div class="fighter-grid">
+    @foreach (var fighter in searchResults)
+        {
+            <FighterCard fighter="@fighter" />
+        }
+    </div>
+}
 
 @code {
     private string? searchQuery;
-    private FighterStats? fighterStats;
+    private List<FighterResult>? searchResults;
     private string? errorMessage; // To display an error message in the UI
 
     private async Task Search()
     {
         errorMessage = null; // Clear previous error messages
-        fighterStats = null; // Reset previous results
-        if (!string.IsNullOrWhiteSpace(searchQuery))
-        {
-            try
-            {
-                fighterStats = await StatsService.GetFighterStats(searchQuery);
 
-                // If the service returns null or empty results, set an appropriate message
-                if (fighterStats == null || fighterStats.Results == null || !fighterStats.Results.Any())
-                {
-                    errorMessage = "No results found.";
-                }
-            }
-            catch (Exception ex)
-            {
-                // Update the UI with the error message
-                errorMessage = $"An error occurred: {ex.Message}";
-            }
-        }
-        else
+        if (string.IsNullOrWhiteSpace(searchQuery))
         {
             errorMessage = "Please enter a search query.";
+            return;
+        }
+
+        try
+        {
+            searchResults = await StatsService.SearchFighters(searchQuery);
+            if (searchResults == null || !searchResults.Any())
+            {
+                errorMessage = "No results found.";
+            }
+            else if (searchResults.Count == 1)
+            {
+                // If there is exactly one result, redirect to the fighter details page
+                NavigationManager.NavigateTo($"/fighter-details/{searchResults.First().Name}");
+            }
+            // If there are multiple results, they will be displayed by the markup above
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
         }
     }
 }

@@ -1,0 +1,49 @@
+.fighter-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fighter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fighter-details {
+    padding: 1rem;
+    text-align: center;
+}
+
+.fighter-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.fighter-nickname {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.fighter-record {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+    background-color: #f7f7f7;
+    padding: 0.5rem 0;
+    margin-top: auto; /* Pushes the record to the bottom */
+}
+
+/* Add responsiveness if needed */
+@media (max-width: 600px) {
+    .fighter-card {
+        margin: 0.5rem;
+    }
+}

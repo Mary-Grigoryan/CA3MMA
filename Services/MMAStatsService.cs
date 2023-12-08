@@ -12,6 +12,34 @@ public class MMAStatsService
         _httpClient = httpClient;
     }
 
+    public async Task<List<FighterResult>?> SearchFighters(string searchTerm)
+    {
+        try
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, $"https://mma-stats.p.rapidapi.com/search?name={Uri.EscapeDataString(searchTerm)}");
+            request.Headers.Add("X-RapidAPI-Key", "ea1a7aa5d6msh5ba879d6516cbc6p196e76jsn3034a6cdcfb0");
+            request.Headers.Add("X-RapidAPI-Host", "mma-stats.p.rapidapi.com");
+
+            // var query = Uri.EscapeDataString(searchTerm);
+            var response = await _httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+
+            var jsonResponse = await response.Content.ReadAsStringAsync();
+            var searchResults = JsonConvert.DeserializeObject<FighterStats>(jsonResponse);
+            return searchResults?.Results;
+        }
+        catch (HttpRequestException httpEx)
+        {
+            Console.WriteLine($"An error occurred when calling the API: {httpEx.Message}");
+            return null;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+            return null;
+        }
+    }
+
     public async Task<FighterStats?> GetFighterStats(string fighterName)
     {
         try
@@ -25,20 +53,16 @@ public class MMAStatsService
 
             var jsonResponse = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<FighterStats>(jsonResponse);
-
         }
         catch (HttpRequestException httpEx)
         {
-            // Log the exception details, adjust the logging mechanism as per your requirements
             Console.WriteLine($"An error occurred when calling the API: {httpEx.Message}");
-            // Optionally, you could handle different status codes differently
-            return null; // Or you could return a new FighterStats with an error message
+            return null;
         }
         catch (Exception ex)
         {
-            // General exception handling, logging etc.
             Console.WriteLine($"An unexpected error occurred: {ex.Message}");
-            return null; // Or you could return a new FighterStats with an error message
+            return null;
         }
     }
 }

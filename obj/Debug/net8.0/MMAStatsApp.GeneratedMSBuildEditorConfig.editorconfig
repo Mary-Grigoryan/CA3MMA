@@ -45,3 +45,11 @@ build_metadata.AdditionalFiles.CssScope = b-bsc0wnxw62
 [/Users/mary/X00178070/MMAStatsApp/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-30r79m00wp
+
+[/Users/mary/X00178070/MMAStatsApp/Pages/FighterDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmlnaHRlckRldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ffl5wfttij
+
+[/Users/mary/X00178070/MMAStatsApp/Shared/FighterCard.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0ZpZ2h0ZXJDYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-a9hcp8vqpc
