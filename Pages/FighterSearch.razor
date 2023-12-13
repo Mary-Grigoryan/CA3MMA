@@ -1,22 +1,20 @@
 @page "/fighter-search"
+@page "/fighter-search/{searchTerm}"
 @inject NavigationManager NavigationManager
 @inject MMAStatsService StatsService
 @using MMAStatsApp.Shared
 
-<EditForm Model="@this" OnValidSubmit="@Search">
-    <InputText id="fighterSearch" class="form-control" @bind-Value="searchQuery" />
-    <button type="submit" class="btn btn-primary">Search</button>
+<EditForm Model="@this" OnValidSubmit="@HandleSearch">
+    <InputText id="fighterSearch" class="form-control search-box" @bind-Value="searchQuery"
+        placeholder="Search for Athletes" />
+    <button type="submit" class="btn btn-black search-btn">Search</button>
 </EditForm>
 
 @if (!string.IsNullOrEmpty(errorMessage))
 {
     <p>@errorMessage</p>
 }
-else if (searchResults != null && searchResults.Count == 1)
-{
-    // There is exactly one result, redirect to the fighter details page
-    NavigationManager.NavigateTo($"/fighter-details/{searchResults.First().Name}");
-}
+
 else if (searchResults != null && searchResults.Count > 1)
 {
     // Display a list or grid of fighters matching the search term
@@ -30,14 +28,31 @@ else if (searchResults != null && searchResults.Count > 1)
 
 @code {
     private string? searchQuery;
-    private List<FighterResult>? searchResults;
-    private string? errorMessage; // To display an error message in the UI
 
-    private async Task Search()
+    [Parameter]
+    public string? searchTerm { get; set; }
+    private List<FighterResult>? searchResults;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            // Perform the search with the searchTerm
+            await PerformSearch(searchTerm);
+        }
+    }
+
+    private async Task HandleSearch()
+    {
+        await PerformSearch(searchQuery);
+    }
+
+    private async Task PerformSearch(string? query)
     {
         errorMessage = null; // Clear previous error messages
 
-        if (string.IsNullOrWhiteSpace(searchQuery))
+        if (string.IsNullOrWhiteSpace(query))
         {
             errorMessage = "Please enter a search query.";
             return;
@@ -45,7 +60,7 @@ else if (searchResults != null && searchResults.Count > 1)
 
         try
         {
-            searchResults = await StatsService.SearchFighters(searchQuery);
+            searchResults = await StatsService.SearchFighters(query);
             if (searchResults == null || !searchResults.Any())
             {
                 errorMessage = "No results found.";

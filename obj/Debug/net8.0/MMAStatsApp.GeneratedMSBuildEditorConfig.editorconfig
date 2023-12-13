@@ -26,14 +26,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mary/X00178070/MMAStatsApp/Pages/FighterSearch.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmlnaHRlclNlYXJjaC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/mary/X00178070/MMAStatsApp/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/mary/X00178070/MMAStatsApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -49,6 +41,14 @@ build_metadata.AdditionalFiles.CssScope = b-30r79m00wp
 [/Users/mary/X00178070/MMAStatsApp/Pages/FighterDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmlnaHRlckRldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ffl5wfttij
+
+[/Users/mary/X00178070/MMAStatsApp/Pages/FighterSearch.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmlnaHRlclNlYXJjaC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-48yo2bgdvq
+
+[/Users/mary/X00178070/MMAStatsApp/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-oekmaw06b8
 
 [/Users/mary/X00178070/MMAStatsApp/Shared/FighterCard.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0ZpZ2h0ZXJDYXJkLnJhem9y

@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 public class MMAStatsService
 {
     private readonly HttpClient _httpClient;
-
     public MMAStatsService(HttpClient httpClient)
     {
         _httpClient = httpClient;
@@ -20,7 +19,6 @@ public class MMAStatsService
             request.Headers.Add("X-RapidAPI-Key", "ea1a7aa5d6msh5ba879d6516cbc6p196e76jsn3034a6cdcfb0");
             request.Headers.Add("X-RapidAPI-Host", "mma-stats.p.rapidapi.com");
 
-            // var query = Uri.EscapeDataString(searchTerm);
             var response = await _httpClient.SendAsync(request);
             response.EnsureSuccessStatusCode();
 
@@ -65,12 +63,34 @@ public class MMAStatsService
             return null;
         }
     }
+
+    public async Task<List<EventMatchup>?> GetUFC296Details()
+    {
+        var request = new HttpRequestMessage
+        {
+            Method = HttpMethod.Get,
+            RequestUri = new Uri("https://mma-stats.p.rapidapi.com/December_16_2023"),
+            Headers =
+        {
+            { "X-RapidAPI-Key", "ea1a7aa5d6msh5ba879d6516cbc6p196e76jsn3034a6cdcfb0" },
+            { "X-RapidAPI-Host", "mma-stats.p.rapidapi.com" },
+        },
+        };
+
+        using (var response = await _httpClient.SendAsync(request))
+        {
+            response.EnsureSuccessStatusCode();
+            var body = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<List<EventMatchup>>(body);
+        }
+    }
 }
 
 public class FighterStats
 {
     [JsonProperty("results")]
-    public List<FighterResult>? Results { get; set; } // It's okay for Results to be null
+    public List<FighterResult>? Results { get; set; }
 }
 
 public class FighterResult
@@ -105,7 +125,7 @@ public class FighterResult
     [JsonProperty("Takedowns Attempted")]
     public string? TakedownsAttempted { get; set; }
 
-    [JsonProperty("Striking accuracy")]
+    [JsonProperty("Striking Accuracy")]
     public string? StrikingAccuracy { get; set; }
 
     [JsonProperty("Takedown Accuracy")]
@@ -177,6 +197,9 @@ public class Records
     [JsonProperty("Wins by Submission")]
     public string? WinsBySubmission { get; set; }
 
+    [JsonProperty("Former Champion")]
+    public string? FormerChampion { get; set; }
+
     [JsonProperty("Sig. Str. Landed")]
     public string? SigStrLanded { get; set; }
 
@@ -216,3 +239,16 @@ public class LastFight
     [JsonProperty("Date")]
     public string? Date { get; set; }
 }
+
+// classes for UFC 296 endpoint
+public class EventMatchup
+{
+    public List<string>? Matchup { get; set; }
+    public Dictionary<string, Dictionary<string, string>>? TaleOfTheTape { get; set; }
+}
+
+public class EventDetails
+{
+    public List<EventMatchup>? Matchups { get; set; }
+}
+

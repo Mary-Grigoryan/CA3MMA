@@ -9,10 +9,8 @@
 
 main {
     flex-grow: 1;
-    /* This will make sure it fills the space after the sidebar */
     margin: 0;
     padding: 0;
-    /* other styles */
 }
 
 .sidebar {
@@ -24,8 +22,6 @@ main {
     margin: 0;
     padding: 0;
     background-color: #000;
-    /* or the color you prefer */
-    /* other styles */
 }
 
 .top-row ::deep a,

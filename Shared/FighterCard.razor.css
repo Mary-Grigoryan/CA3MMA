@@ -38,10 +38,9 @@
     color: #333;
     background-color: #f7f7f7;
     padding: 0.5rem 0;
-    margin-top: auto; /* Pushes the record to the bottom */
+    margin-top: auto;
 }
 
-/* Add responsiveness if needed */
 @media (max-width: 600px) {
     .fighter-card {
         margin: 0.5rem;

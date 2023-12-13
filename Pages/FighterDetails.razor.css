@@ -5,38 +5,29 @@
     padding: 2rem;
     border-radius: 0.5rem;
     font-family: Arial, sans-serif;
-    /* Replace with the UFC font if available */
 }
 
 .division-status {
     display: inline-flex;
-    /* Use flexbox for inline alignment */
     gap: 10px;
-    /* Adjust as needed */
     margin-bottom: 1rem;
 }
 
 .division-status>span {
     padding: 0.25rem 1rem;
     border-radius: 20px;
-    /* Creates rounded corners */
     background-color: #343434;
-    /* Dark gray background */
     color: #fff;
-    /* White text */
     font-size: 0.875rem;
-    /* Adjust as needed */
     font-weight: bold;
-    /* Makes text bold */
     text-transform: uppercase;
-    /* Uppercase text */
     white-space: nowrap;
-    /* Prevents wrapping */
 }
 
 .nickname {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    text-transform: uppercase;
 }
 
 .name {
@@ -44,6 +35,7 @@
     margin-bottom: 0.5rem;
     font-weight: bold;
     letter-spacing: 0.1rem;
+    text-transform: uppercase;
 }
 
 .record {
@@ -63,14 +55,19 @@
 }
 
 .number {
+    display: block;
     font-size: 4rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    color: #fff;
 }
 
 .label {
-    font-weight: bold;
+    display: block;
+    font-size: 1rem;
+    color: #999;
     text-transform: uppercase;
+    margin-top: .5rem;
 }
 
 .last-fight {
@@ -85,10 +82,74 @@
 
 .fight-details {
     margin-bottom: 0.25rem;
+    text-transform: uppercase;
 }
 
 .fight-date {
     font-size: 0.9rem;
 }
 
-/* Add media queries as needed for responsiveness */
+.section-title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.card {
+    background-color: #343434;
+    color: #fff;
+}
+
+.card.h-100 {
+    background-color: #212528;
+    color: #fff;
+}
+
+/* Stats card styling */
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.card-text {
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 0rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stats-box {
+        flex-direction: column;
+    }
+
+    .stat-block {
+        padding: 0.5rem;
+        margin: 1rem auto;
+        max-width: 350px;
+    }
+
+    .number {
+        font-size: 3rem;
+    }
+
+    .label {
+        font-size: 0.9rem;
+    }
+
+    .card-title,
+    .card-text {
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 0.25rem;
+    }
+}

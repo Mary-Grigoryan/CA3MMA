@@ -2,10 +2,170 @@
 @inject MMAStatsService StatsService
 @inject NavigationManager NavigationManager
 
+@if (fighterStats != null && fighterStats.Results != null && fighterStats.Results.Any())
+{
+    var fighter = fighterStats.Results.First();
+    <div class="fighter-profile container mt-5">
+    <div class="division-status">
+        <span class="division">@fighter.DivisionTitle</span>
+        <span class="status">@fighter.BioData?.Status</span>
+    </div>
+    <div class="nickname">"@fighter.Nickname"</div>
+    <h1 class="name">@fighter.Name</h1>
+    <div class="record">@fighter.DivisionBody?.Wins-@fighter.DivisionBody?.Losses-@fighter.DivisionBody?.Draws (W-L-D)
+    </div>
+    <div class="stats">
+        <div class="stat">
+            <span class="number">@fighter.Records?.WinsByKnockout</span>
+            <span class="label">Wins by Knockout</span>
+        </div>
+        <div class="stat">
+            <span class="number">@fighter.Records?.WinsBySubmission</span>
+            <span class="label">Wins by Submission</span>
+        </div>
+        <div class="stat">
+            <span class="number">@fighter?.Records?.FormerChampion</span>
+            <span class="label">Former Champion</span>
+        </div>
+    </div>
+    <div class="last-fight">
+        <div class="fight-title">LAST FIGHT</div>
+        <div class="fight-details">@fighter?.LastFight?.Event @fighter?.LastFight?.Matchup</div>
+        <div class="fight-date">@fighter?.LastFight?.Date</div>
+    </div>
+
+    <!-- Stats & Records Section -->
+    <div class="row pt-5">
+        <h2 class="section-title col-12">STATS & RECORDS</h2>
+        <!-- Top Row Stats -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">WINS BY KNOCKOUT</h5>
+                    <p class="card-text">@fighter?.Records?.WinsByKnockout</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">WINS BY SUBMISSION</h5>
+                    <p class="card-text">@fighter?.Records?.WinsBySubmission</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">FORMER CHAMPION</h5>
+                    <p class="card-text">@fighter?.Records?.FormerChampion</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middle Row Stats for Striking and Takedown Accuracy -->
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <h4 class="card-title">STRIKING ACCURACY</h4>
+                    <p class="card-text">@fighter?.StrikingAccuracy</p>
+                    <div class="text-muted">
+                        Sig. Strikes Landed: @fighter?.SigStrikesLanded<br>
+                        Sig. Strikes Attempted: @fighter?.SigStrikesAttempted
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <h4 class="card-title">TAKEDOWN ACCURACY</h4>
+                    <p class="card-text">@fighter?.TakedownAccuracy</p>
+                    <div class="text-muted">
+                        Takedowns Landed: @fighter?.TakedownsLanded<br>
+                        Takedowns Attempted: @fighter?.TakedownsAttempted
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Stats -->
+    <div class="row">
+        <!-- First Stats Card with Striking Stats -->
+        <div class="col-lg-6">
+            <div class="card bg-dark text-white text-center mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Stat 1 -->
+                        <div class="col-md-6">
+                            <p class="card-text">@fighter?.Records?.SigStrLanded</p>
+                            <h5 class="card-title">SIG. STR. LANDED PER MIN</h5>
+                        </div>
+                        <!-- Stat 2 -->
+                        <div class="col-md-6">
+                            <p class="card-text">@fighter?.Records?.SigStrAbsorbed</p>
+                            <h5 class="card-title">SIG. STR. ABSORBED PER MIN</h5>
+                        </div>
+                        <!-- Stat 3 -->
+                        <div class="col-md-6">
+                            <p class="card-text">@fighter?.Records?.TakedownAvg</p>
+                            <h5 class="card-title">TAKEDOWN AVG PER 15 MIN</h5>
+                        </div>
+                        <!-- Stat 4 -->
+                        <div class="col-md-6">
+                            <p class="card-text">@fighter?.Records?.SubmissionAvg</p>
+                            <h5 class="card-title">SUBMISSION AVG PER 15 MIN</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Stats Card with Defensive Stats -->
+        <div class="col-lg-6">
+            <div class="card bg-dark text-white text-center mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Stat 5 -->
+                        <div class="col-md-6">
+                            <p class="card-text">@fighter?.Records?.SigStrDefense</p>
+                            <h5 class="card-title">SIG. STR. DEFENSE</h5>
+                        </div>
+                        <!-- Stat 6 -->
+                        <div class="col-md-6">
+                            <p class="card-text">@fighter?.Records?.TakedownDefense</p>
+                            <h5 class="card-title">TAKEDOWN DEFENSE</h5>
+                        </div>
+                        <!-- Stat 7 -->
+                        <div class="col-md-6">
+                            <p class="card-text">@fighter?.Records?.KnockdownAvg</p>
+                            <h5 class="card-title">KNOCKDOWN AVG</h5>
+                        </div>
+                        <!-- Stat 8 -->
+                        <div class="col-md-6">
+                            <p class="card-text">@fighter?.Records?.AverageFightTime</p>
+                            <h5 class="card-title">AVERAGE FIGHT TIME</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+else if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p>@errorMessage</p>
+}
+
 @code {
     [Parameter]
     public string? FighterName { get; set; }
-
     private FighterStats? fighterStats;
     private string? errorMessage;
 
@@ -36,42 +196,4 @@
             NavigationManager.NavigateTo("/fighter-search"); // Redirect to the search page
         }
     }
-}
-
-@if (fighterStats != null && fighterStats.Results != null && fighterStats.Results.Any())
-{
-    var fighter = fighterStats.Results.First();
-    <div class="fighter-profile">
-    <div class="division-status">
-        <span class="division">@fighter.DivisionTitle</span>
-        <span class="status">@fighter.BioData?.Status</span>
-    </div>
-    <div class="nickname">@fighter.Nickname</div>
-    <h1 class="name">@fighter.Name</h1>
-    <div class="record">@fighter.DivisionBody?.Wins-@fighter.DivisionBody?.Losses-@fighter.DivisionBody?.Draws (W-L-D)
-    </div>
-    <div class="stats">
-        <div class="stat">
-            <span class="number">@fighter.Records?.WinsByKnockout</span>
-            <span class="label">Wins by Knockout</span>
-        </div>
-        <div class="stat">
-            <span class="number">@fighter.Records?.WinsBySubmission</span>
-            <span class="label">Wins by Submission</span>
-        </div>
-        <div class="stat">
-            <span class="number">10</span> <!-- Replace with actual data -->
-            <span class="label">First Round Finishes</span>
-        </div>
-    </div>
-    <div class="last-fight">
-        <div class="fight-title">Last Fight</div>
-        <div class="fight-details">@fighter.LastFight?.Event vs @fighter.LastFight?.Matchup</div>
-        <div class="fight-date">@fighter.LastFight?.Date</div>
-    </div>
-</div>
-}
-else if (!string.IsNullOrEmpty(errorMessage))
-{
-    <p>@errorMessage</p>
 }
