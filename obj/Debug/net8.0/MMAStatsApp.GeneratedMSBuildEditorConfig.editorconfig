@@ -13,43 +13,43 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = MMAStatsApp
 build_property.RootNamespace = MMAStatsApp
-build_property.ProjectDir = /Users/mary/X00178070/MMAStatsApp/
+build_property.ProjectDir = /Users/mary/X00178070/CA3-EAD/MMAStatsApp/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/mary/X00178070/MMAStatsApp
+build_property.MSBuildProjectDirectory = /Users/mary/X00178070/CA3-EAD/MMAStatsApp
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/mary/X00178070/MMAStatsApp/App.razor]
+[/Users/mary/X00178070/CA3-EAD/MMAStatsApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mary/X00178070/MMAStatsApp/_Imports.razor]
+[/Users/mary/X00178070/CA3-EAD/MMAStatsApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mary/X00178070/MMAStatsApp/Layout/MainLayout.razor]
+[/Users/mary/X00178070/CA3-EAD/MMAStatsApp/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-bsc0wnxw62
 
-[/Users/mary/X00178070/MMAStatsApp/Layout/NavMenu.razor]
+[/Users/mary/X00178070/CA3-EAD/MMAStatsApp/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-30r79m00wp
 
-[/Users/mary/X00178070/MMAStatsApp/Pages/FighterDetails.razor]
+[/Users/mary/X00178070/CA3-EAD/MMAStatsApp/Pages/FighterDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmlnaHRlckRldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ffl5wfttij
 
-[/Users/mary/X00178070/MMAStatsApp/Pages/FighterSearch.razor]
+[/Users/mary/X00178070/CA3-EAD/MMAStatsApp/Pages/FighterSearch.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmlnaHRlclNlYXJjaC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-48yo2bgdvq
 
-[/Users/mary/X00178070/MMAStatsApp/Pages/Home.razor]
+[/Users/mary/X00178070/CA3-EAD/MMAStatsApp/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-oekmaw06b8
 
-[/Users/mary/X00178070/MMAStatsApp/Shared/FighterCard.razor]
+[/Users/mary/X00178070/CA3-EAD/MMAStatsApp/Shared/FighterCard.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0ZpZ2h0ZXJDYXJkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-a9hcp8vqpc

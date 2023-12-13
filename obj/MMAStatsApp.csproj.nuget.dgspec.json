@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mary/X00178070/MMAStatsApp/MMAStatsApp.csproj": {}
+    "/Users/mary/X00178070/CA3-EAD/MMAStatsApp/MMAStatsApp.csproj": {}
   },
   "projects": {
-    "/Users/mary/X00178070/MMAStatsApp/MMAStatsApp.csproj": {
+    "/Users/mary/X00178070/CA3-EAD/MMAStatsApp/MMAStatsApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mary/X00178070/MMAStatsApp/MMAStatsApp.csproj",
+        "projectUniqueName": "/Users/mary/X00178070/CA3-EAD/MMAStatsApp/MMAStatsApp.csproj",
         "projectName": "MMAStatsApp",
-        "projectPath": "/Users/mary/X00178070/MMAStatsApp/MMAStatsApp.csproj",
+        "projectPath": "/Users/mary/X00178070/CA3-EAD/MMAStatsApp/MMAStatsApp.csproj",
         "packagesPath": "/Users/mary/.nuget/packages/",
-        "outputPath": "/Users/mary/X00178070/MMAStatsApp/obj/",
+        "outputPath": "/Users/mary/X00178070/CA3-EAD/MMAStatsApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mary/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UsZIqTnd5gig2fr0WVf/1AmlUaJdWIlT5RN6roWjK9eSUxlXJ+9AeOeRhBUgjpY00n/jiymbpsswrjeLdV1bqQ==",
+  "dgSpecHash": "iExEwHzo9dRjguHJsLTXAPZOmOG6jc64DkTZy+oO8+FQrQZYaEvPaAwugBi5i4ZwXn1TNmftVld8jhN5ILfXDQ==",
   "success": true,
-  "projectFilePath": "/Users/mary/X00178070/MMAStatsApp/MMAStatsApp.csproj",
+  "projectFilePath": "/Users/mary/X00178070/CA3-EAD/MMAStatsApp/MMAStatsApp.csproj",
   "expectedPackageFiles": [
     "/Users/mary/.nuget/packages/microsoft.aspnetcore.authorization/8.0.0/microsoft.aspnetcore.authorization.8.0.0.nupkg.sha512",
     "/Users/mary/.nuget/packages/microsoft.aspnetcore.components/8.0.0/microsoft.aspnetcore.components.8.0.0.nupkg.sha512",
