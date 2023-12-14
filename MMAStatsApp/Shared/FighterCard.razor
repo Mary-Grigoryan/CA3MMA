@@ -1,0 +1,37 @@
+@using MMAStatsApp
+@inject NavigationManager NavigationManager
+
+@if (fighter != null)
+{
+    <div class="fighter-card" @onclick="() => NavigateToDetails(fighter.Name)">
+    <div class="fighter-details">
+        <div class="fighter-name">@fighter.Name</div>
+        <div class="fighter-nickname">@fighter.Nickname</div>
+        @if (fighter.DivisionBody != null)
+            {
+                <div class="fighter-record">
+                    <span>@fighter.DivisionBody.Wins</span>-
+                    <span>@fighter.DivisionBody.Losses</span>-
+                    <span>@fighter.DivisionBody.Draws</span> (W-L-D)
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public FighterResult? fighter { get; set; }
+
+    private void NavigateToDetails(string? fighterName)
+    {
+        if (!string.IsNullOrWhiteSpace(fighterName))
+        {
+            NavigationManager.NavigateTo($"/fighter-details/{fighterName}");
+        }
+        else
+        {
+            Console.WriteLine("Fighter name is null or whitespace.");
+        }
+    }
+}

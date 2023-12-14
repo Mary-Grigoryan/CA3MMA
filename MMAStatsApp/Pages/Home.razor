@@ -1,0 +1,49 @@
+﻿@page "/"
+@inject MMAStatsService StatsService
+
+<div class="main-event-background" style="background-image: url('ufc296.jpeg');">
+    <h5 class="event-title">UFC 296</h5>
+    <div class="fighter-names">
+        <h1>LEON EDWARDS VS COLBY COVINGTON</h1>
+    </div>
+    <div class="event-details">
+        <span>Sun, Dec 17 / 3:00 am GMT</span><br>
+        <span>T-Mobile Arena, Las Vegas United States</span>
+    </div>
+</div>
+
+@code {
+    private List<EventMatchup>? eventDetails;
+
+    protected override async Task OnInitializedAsync()
+    {
+        eventDetails = await StatsService.GetUFC296Details();
+    }
+
+    private string FormatMatchup(List<string> matchup)
+    {
+        return matchup != null && matchup.Count > 1
+        ? string.Join(" VS ", matchup.Select(m => m.ToUpper()))
+        : string.Empty;
+    }
+}
+
+@if (eventDetails != null)
+{
+    <h2 class="fight-card-title">FIGHT CARD</h2>
+    <div class="event-matchup-container">
+    @foreach (var eventMatchup in eventDetails)
+        {
+            if (eventMatchup?.Matchup != null)
+            {
+                <div class="event-matchup-card">
+                    @FormatMatchup(eventMatchup.Matchup)
+                </div>
+            }
+        }
+    </div>
+}
+else
+{
+    <p>Loading event details...</p>
+}

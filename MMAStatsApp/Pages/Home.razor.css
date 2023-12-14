@@ -1,0 +1,65 @@
+.main-event-background {
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 100px;
+    padding: 250px 0;
+    position: relative;
+}
+
+.event-details {
+    position: absolute;
+    bottom: 0; 
+    width: 100%;
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.fighter-names h1 {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.event-matchup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.fight-card-title {
+    font-size: 1.5em;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.event-matchup-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 80%; 
+    margin: auto;
+    font-weight: bold;
+}
+
+.event-matchup span {
+    display: block;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
