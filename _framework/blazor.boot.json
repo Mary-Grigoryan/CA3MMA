@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "MMAStatsApp",
   "resources": {
-    "hash": "sha256-s8MR5D4whaeMb02pS6CwRdGN7yZTxBxLnUtP9coH/Ok=",
+    "hash": "sha256-TlCKS/bvsHD83uJf8/PAQNK/zXvI3/ZMipd6LyjjSDk=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.45ykigla5r.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -33,7 +33,7 @@
       "Microsoft.Extensions.Primitives.wasm": "sha256-Ms2HR5Gpug/0uRAzdk4SUNT76Ml3CjFv9Jo+dUIMGac=",
       "Microsoft.JSInterop.wasm": "sha256-lXwhdv0Is9FMH/j0+WH3zoNWAGLbVaONtGucJ/4URQ0=",
       "Microsoft.JSInterop.WebAssembly.wasm": "sha256-CQVLCKiSxLN5ghyJZG3mhnMGRROdqrbNUjtAXB0nWb8=",
-      "MMAStatsApp.wasm": "sha256-FbltoCbhSn6jlo03qfB6DNngv990LfUHle9ggYrjZfQ=",
+      "MMAStatsApp.wasm": "sha256-cXTkDYowTzlOmxGfJV4vcm7m1FBHhvB72fR774qpju0=",
       "Newtonsoft.Json.wasm": "sha256-GlXMWKvDs45M2pACoR3Y4Qh8mcrOZGljqmvJY+6JZ5s=",
       "System.Collections.Concurrent.wasm": "sha256-jv2flJarVUQqUPOWcl0oGULCfbFo66JICQHs+yXsl4M=",
       "System.Collections.NonGeneric.wasm": "sha256-LISYR3w9vyqj8c5VaNG1EQI9bhVU6uwxfjkquwkMIKU=",
