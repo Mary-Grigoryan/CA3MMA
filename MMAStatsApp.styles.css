@@ -1,0 +1,448 @@
+/* /Layout/MainLayout.razor.rz.scp.css */
+.page[b-bsc0wnxw62] {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+main[b-bsc0wnxw62] {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar[b-bsc0wnxw62] {
+    background-color: #000000;
+}
+
+.top-row[b-bsc0wnxw62] {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+
+.top-row[b-bsc0wnxw62]  a,
+.top-row[b-bsc0wnxw62]  .btn-link {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+    text-decoration: none;
+}
+
+.top-row[b-bsc0wnxw62]  a:hover,
+.top-row[b-bsc0wnxw62]  .btn-link:hover {
+    text-decoration: underline;
+}
+
+.top-row[b-bsc0wnxw62]  a:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 640.98px) {
+    .top-row[b-bsc0wnxw62] {
+        justify-content: space-between;
+    }
+
+    .top-row[b-bsc0wnxw62]  a,
+    .top-row[b-bsc0wnxw62]  .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-bsc0wnxw62] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-bsc0wnxw62] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-bsc0wnxw62] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth[b-bsc0wnxw62]  a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row[b-bsc0wnxw62],
+    article[b-bsc0wnxw62] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* /Layout/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-30r79m00wp] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand img[b-30r79m00wp] {
+    display: block;
+    max-height: 8rem;
+    width: auto;
+    margin-right: 10px;
+}
+
+.top-row[b-30r79m00wp] {
+    height: 9rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-30r79m00wp] {
+    font-size: 1.1rem;
+}
+
+.bi[b-30r79m00wp] {
+    display: inline-block;
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.75rem;
+    top: -1px;
+    background-size: cover;
+}
+
+.nav-item[b-30r79m00wp] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-30r79m00wp] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-30r79m00wp] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-30r79m00wp]  a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+.nav-item[b-30r79m00wp]  a.active {
+    background-color: rgba(255,255,255,0.37);
+    color: white;
+}
+
+.nav-item[b-30r79m00wp]  a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-30r79m00wp] {
+        display: none;
+    }
+
+    .collapse[b-30r79m00wp] {
+        display: block;
+    }
+    
+    .nav-scrollable[b-30r79m00wp] {
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+    }
+}
+/* /Pages/FighterDetails.razor.rz.scp.css */
+.fighter-profile[b-ffl5wfttij] {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    font-family: Arial, sans-serif;
+}
+
+.division-status[b-ffl5wfttij] {
+    display: inline-flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.division-status>span[b-ffl5wfttij] {
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    background-color: #343434;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.nickname[b-ffl5wfttij] {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.name[b-ffl5wfttij] {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.record[b-ffl5wfttij] {
+    margin-bottom: 2rem;
+}
+
+.stats[b-ffl5wfttij] {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+}
+
+.stat[b-ffl5wfttij] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.number[b-ffl5wfttij] {
+    display: block;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.label[b-ffl5wfttij] {
+    display: block;
+    font-size: 1rem;
+    color: #999;
+    text-transform: uppercase;
+    margin-top: .5rem;
+}
+
+.last-fight[b-ffl5wfttij] {
+    margin-bottom: 2rem;
+}
+
+.fight-title[b-ffl5wfttij] {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.fight-details[b-ffl5wfttij] {
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.fight-date[b-ffl5wfttij] {
+    font-size: 0.9rem;
+}
+
+.section-title[b-ffl5wfttij] {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.card[b-ffl5wfttij] {
+    background-color: #343434;
+    color: #fff;
+}
+
+.card.h-100[b-ffl5wfttij] {
+    background-color: #212528;
+    color: #fff;
+}
+
+/* Stats card styling */
+.card-body[b-ffl5wfttij] {
+    padding: 1rem;
+}
+
+.card-title[b-ffl5wfttij] {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.card-text[b-ffl5wfttij] {
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 0rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stats-box[b-ffl5wfttij] {
+        flex-direction: column;
+    }
+
+    .stat-block[b-ffl5wfttij] {
+        padding: 0.5rem;
+        margin: 1rem auto;
+        max-width: 350px;
+    }
+
+    .number[b-ffl5wfttij] {
+        font-size: 3rem;
+    }
+
+    .label[b-ffl5wfttij] {
+        font-size: 0.9rem;
+    }
+
+    .card-title[b-ffl5wfttij],
+    .card-text[b-ffl5wfttij] {
+        text-align: center;
+        margin-bottom: 0;
+        margin-top: 0.25rem;
+    }
+}
+/* /Pages/FighterSearch.razor.rz.scp.css */
+.search-box[b-48yo2bgdvq] {
+    margin-bottom: 1rem;
+}
+
+.search-btn[b-48yo2bgdvq] {
+    margin-top: 1rem;
+}
+
+.btn-black[b-48yo2bgdvq] {
+    background-color: #808080;
+    color: #ffffff;
+    border: none;
+    margin-top: 1rem;
+}
+/* /Pages/Home.razor.rz.scp.css */
+.main-event-background[b-oekmaw06b8] {
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 100px;
+    padding: 250px 0;
+    position: relative;
+}
+
+.event-details[b-oekmaw06b8] {
+    position: absolute;
+    bottom: 0; 
+    width: 100%;
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.fighter-names h1[b-oekmaw06b8] {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.event-matchup-container[b-oekmaw06b8] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.fight-card-title[b-oekmaw06b8] {
+    font-size: 1.5em;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.event-matchup-card[b-oekmaw06b8] {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 80%; 
+    margin: auto;
+    font-weight: bold;
+}
+
+.event-matchup span[b-oekmaw06b8] {
+    display: block;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+/* /Shared/FighterCard.razor.rz.scp.css */
+.fighter-card[b-a9hcp8vqpc] {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fighter-card:hover[b-a9hcp8vqpc] {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fighter-details[b-a9hcp8vqpc] {
+    padding: 1rem;
+    text-align: center;
+}
+
+.fighter-name[b-a9hcp8vqpc] {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.fighter-nickname[b-a9hcp8vqpc] {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.fighter-record[b-a9hcp8vqpc] {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+    background-color: #f7f7f7;
+    padding: 0.5rem 0;
+    margin-top: auto;
+}
+
+@media (max-width: 600px) {
+    .fighter-card[b-a9hcp8vqpc] {
+        margin: 0.5rem;
+    }
+}
