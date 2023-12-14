@@ -67,6 +67,57 @@ namespace MMAStatsApp.Tests
             _driver?.Quit();
         }
 
+        [TestMethod]
+        public void Test_NavigateToHome_CheckPageLoad()
+        {
+            _driver = _driver ?? throw new InvalidOperationException("WebDriver is not initialized.");
+            _driver.Navigate().GoToUrl("http://localhost:5192/");
+
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+
+            // Click on the "HOME" link in the navigation bar, ensuring the driver is not null
+            var homeNavLink = wait.Until(driver => driver.FindElement(By.CssSelector("nav a.nav-link[href='/']")));
+            homeNavLink?.Click();
+
+            // Wait for the main event background to be present, indicating the Home page has loaded
+            var mainEventBackground = wait.Until(driver => driver.FindElement(By.CssSelector(".main-event-background")));
+
+            // Assert that the main event title is present and correct
+            var eventTitle = _driver.FindElement(By.CssSelector(".event-title"));
+            Assert.IsTrue(eventTitle?.Text.Contains("UFC 296"), "The main event title should contain 'UFC 296'.");
+
+            // Assert that the fighter names are present and correct
+            var fighterNames = _driver.FindElement(By.CssSelector(".fighter-names h1"));
+            string expectedFighterNames = "LEON EDWARDS VS COLBY COVINGTON";
+            Assert.IsTrue(fighterNames?.Text.Equals(expectedFighterNames, StringComparison.OrdinalIgnoreCase), "The fighter names should match the expected names.");
+
+            // Cleanup
+            _driver.Quit();
+        }
+
+        [TestMethod]
+        public void Test_SidebarLoadsCorrectly()
+        {
+            _driver = _driver ?? throw new InvalidOperationException("WebDriver is not initialized.");
+            _driver.Navigate().GoToUrl("http://localhost:5192/");
+
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+
+            // Wait for the sidebar to be present
+            IWebElement sidebar = wait.Until(driver => driver.FindElement(By.CssSelector("div.nav-scrollable")));
+
+            // Check that the "HOME" link is present in the sidebar
+            IWebElement homeLink = sidebar.FindElement(By.CssSelector("nav a.nav-link[href='/']"));
+            Assert.IsNotNull(homeLink, "The HOME link should be present in the sidebar.");
+
+            // Check that the "ATHLETES" link is present in the sidebar
+            IWebElement athletesLink = sidebar.FindElement(By.CssSelector("nav a.nav-link[href='/fighter-search']"));
+            Assert.IsNotNull(athletesLink, "The ATHLETES link should be present in the sidebar.");
+            
+            // Cleanup
+            _driver.Quit();
+        }
+
         [TestCleanup]
         public void TestTeardown()
         {
